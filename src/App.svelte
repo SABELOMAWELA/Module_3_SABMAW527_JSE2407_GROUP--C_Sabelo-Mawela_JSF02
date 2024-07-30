@@ -9,7 +9,7 @@
 <main class="bg-cyan-100 w-full h-full">
   <Router>
     <Navbar title="SwiftCart" />
-    <SearchSort />
+    <!-- <SearchSort /> -->
     <Route path="/" component={ProductList} />
     <Route path="/product/:id" component={ProductDetail} />
   </Router>

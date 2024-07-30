@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 
 </script>
 
@@ -15,8 +15,8 @@
         <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
         </svg>
-      </button>
-      {#if $dropdownOpen}
+      <!-- </button> -->
+      <!-- {#if $dropdownOpen}
         <div id="dropdown" class="z-10 absolute top-[100%] bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
           <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdown-button">
             {#each $data.categories as category}
@@ -43,9 +43,9 @@
         </button>
       </div>
     </div>
-  </form>
+  </form> -->
   <!-- Sort prices -->
-  <div class="flex sm:w-[95%] max-w-[21rem] md:w-full">
+  <!-- <div class="flex sm:w-[95%] max-w-[21rem] md:w-full">
     <label for="sort" class="w-20 my-auto font-semibold text-black">Sort by:</label>
     <select 
       id="sort" 
@@ -58,4 +58,4 @@
       <option value="Price: high to low">Price: high to low</option>
     </select>
   </div>
-</div>
+</div> --> -->
