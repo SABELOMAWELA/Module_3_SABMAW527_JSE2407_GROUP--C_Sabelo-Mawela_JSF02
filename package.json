@@ -15,5 +15,8 @@
     "svelte": "^4.2.18",
     "tailwindcss": "^3.4.6",
     "vite": "^5.3.4"
+  },
+  "dependencies": {
+    "svelte-routing": "^2.13.0"
   }
 }

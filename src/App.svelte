@@ -1,10 +1,16 @@
 <script>
   import Navbar from './Components/navbar.svelte';
-  import Searchsort from './Components/Search&sort.svelte';
-  import ProductlistLoadingState from './Components/Productlist&LoadingState.svelte';
+  import SearchSort from './Components/Search&sort.svelte';
+  import { Router, Route } from 'svelte-routing';
+  import ProductList from './Components/Api.svelte';
+  import ProductDetail from './Components/ProductDetail.svelte';
 </script>
 
-<Navbar title="SwiftCart" />
-<Searchsort />
-<ProductlistLoadingState />
-
+<main class="bg-cyan-100 w-full h-full">
+  <Router>
+    <Navbar title="SwiftCart" />
+    <SearchSort />
+    <Route path="/" component={ProductList} />
+    <Route path="/product/:id" component={ProductDetail} />
+  </Router>
+</main>
