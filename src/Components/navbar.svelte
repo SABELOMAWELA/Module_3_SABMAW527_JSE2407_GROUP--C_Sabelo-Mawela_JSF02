@@ -1,4 +1,9 @@
 <script>
+    /**
+   * @type {string}
+   * The title to display in the navbar.
+   */
+
      export let title="SwiftCart";
      
 </script>

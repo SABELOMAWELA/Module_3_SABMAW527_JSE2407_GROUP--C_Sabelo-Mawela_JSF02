@@ -1,7 +1,14 @@
 <script>
   import { onMount } from 'svelte';
   import { Link } from 'svelte-routing';
-
+ 
+  /**
+   * @typedef {Object} Data
+   * @property {Array<Object>} products - The list of products.
+   * @property {Array<string>} categories - The list of categories.
+   */
+ 
+    /** @type {Data} */
   let data = {
     products: [],
     categories: []
@@ -11,6 +18,11 @@
   let searchTerm = '';
   let sorting = '';
   let dropdownOpen = false;
+   /**
+   * Loads the products from the API based on filter and sort criteria.
+   * @async
+   * @function
+   */
 
   async function loadProducts() {
     loading = true;
@@ -42,7 +54,12 @@
       loading = false;
     }
   }
-
+ 
+  /**
+   * Loads the categories from the API.
+   * @async
+   * @function
+   */
   async function loadCategories() {
     try {
       const response = await fetch('https://fakestoreapi.com/products/categories');
@@ -52,27 +69,46 @@
       console.error('Error fetching categories:', error);
     }
   }
+   /**
+   * Handles the search input change event.
+   * @param {Event} event - The input event.
+   */
 
   function handleSearch(event) {
     searchTerm = event.target.value;
     loadProducts();
   }
+/**
+   * Handles the sort selection change event.
+   * @param {Event} event - The change event.
+   */
 
   function handleSort(event) {
     sorting = event.target.value;
     loadProducts();
   }
+ /**
+   * Handles the category filter selection event.
+   * @param {string} category - The selected category.
+   */
 
   function handleFilter(category) {
     filterItem = category;
     dropdownOpen = false;
     loadProducts();
   }
-
+/**
+   * Toggles the dropdown menu.
+   */
   function toggleDropdown() {
     dropdownOpen = !dropdownOpen;
   }
-
+ /**
+   * Gets the CSS class for the star rating.
+   * @param {number} star - The star number.
+   * @param {number} rating - The product rating.
+   * @returns {string} The CSS class for the star.
+   */
   function getStarClass(star, rating) {
     return star <= Math.round(rating) ? 'text-yellow-500' : 'text-gray-300';
   }
@@ -151,12 +187,16 @@
           <div class="flex-1 flex flex-col p-6">
             <div class="flex-1">
               <header class="mb-2 flex-2">
+                
                 <h2 class="text-lg line-clamp-2 font-extrabold leading-snug">
                   <div class="text-slate-600 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300">
+                    <Link to={`/product/${product.id}`}>
                     <p>{product.title}</p>
+                  </Link>
                   </div>
                 </h2>
               </header>
+         
               <div class="flex items-center">
                 {#each Array(5).fill(0).map((_, i) => i + 1) as star}
                   <svg class="w-4 h-4 fill-current {getStarClass(star, product.rating.rate)}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

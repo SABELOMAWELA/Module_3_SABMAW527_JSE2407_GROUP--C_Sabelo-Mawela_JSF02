@@ -5,7 +5,11 @@
   export let id;
   let product = null;
   let loading = true;
-
+/**
+   * Fetches the product details from the API based on the product ID.
+   * @async
+   * @function
+   */
   onMount(async () => {
     try {
       const response = await fetch(`https://fakestoreapi.com/products/${id}`);
